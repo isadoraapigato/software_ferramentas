@@ -1,0 +1,8 @@
+dao\AmigoDAO.class
+dao\ConexaoDAO.class
+dao\EmprestimoDAO.class
+modelo\Amigo.class
+principal\Principal.class
+modelo\Emprestimo.class
+modelo\Ferramenta.class
+dao\FerramentaDAO.class
