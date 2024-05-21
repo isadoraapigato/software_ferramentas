@@ -1,4 +1,3 @@
 package dao;
-public class AmigoDAO {
-    
+public class AmigoDAO {  
 }
