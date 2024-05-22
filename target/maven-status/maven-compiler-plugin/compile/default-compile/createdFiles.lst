@@ -1,8 +1,8 @@
 dao\AmigoDAO.class
 dao\ConexaoDAO.class
+visualizacao\Teste$1.class
 dao\EmprestimoDAO.class
 modelo\Amigo.class
-principal\Principal.class
 modelo\Emprestimo.class
-modelo\Ferramenta.class
+visualizacao\Teste.class
 dao\FerramentaDAO.class
