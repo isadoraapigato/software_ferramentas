@@ -1,5 +1,5 @@
 package dao;
-//MUDAR IDAMIGO PARA TODOS
+//MUDAR IDAMIGO PARA TODOS Exemplo de commit teste
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
