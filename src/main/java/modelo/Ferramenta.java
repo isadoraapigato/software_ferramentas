@@ -8,7 +8,7 @@ public class Ferramenta {
         private String ferramenta;
         private String marca;
         private double preco;
-        FerramentaDAO dao;
+        FerramentaDAO objeto = new FerramentaDAO();
         
         public Ferramenta(){
             this(0, "", "", 0.0);
@@ -19,20 +19,15 @@ public class Ferramenta {
             this.ferramenta = ferramenta;
             this.marca = marca;
             this.preco = preco;
-            dao = new FerramentaDAO();
             
         }
         
-        public int getId(){
+        public int getId(String nome, String marca){
             return id;
         }
 
         public void setId(int id) {
             this.id = id;
-        }
-
-        public String getFerramenta() {
-            return ferramenta;
         }
 
         public void setFerramenta(String Ferramenta) {
@@ -60,19 +55,17 @@ public class Ferramenta {
              return super.toString() + "ferramenta+" + ferramenta + ", marca=" + marca + "preco=" + preco;
         }
         
-        public ArrayList<Ferramenta> getMinhaLista(){
-            return dao.getMinhaLista();
+        public ArrayList getFerramenta(){
+            return objeto.getMinhaLista();
         }
         
-        public boolean insertFerramentaBD(String ferramenta, String marca, double preco) {
-            int id = this.maiorID()+1;
-            Ferramenta objeto = new Ferramenta(id, ferramenta, marca, preco);
-            dao.insertFerramentaBD(objeto);
+        public boolean addFerramenta(String ferramenta, String marca, double preco) {
+            objeto.insertFerramentaBD(ferramenta,marca,preco);
             return true;
         }
         
-        public boolean deleteFerramentaBD(int id) {
-            dao.deleteFerramentaBD(id);
+        public boolean deleteFerramentaBD(String ferramenta, String marca) {
+            objeto.deleteFerramentaBD(ferramenta,marca);
             return true;
         }
         

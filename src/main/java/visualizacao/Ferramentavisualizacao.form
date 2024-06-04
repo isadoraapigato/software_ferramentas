@@ -92,7 +92,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton3" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="botaoexcluir" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="jButton5" min="-2" pref="209" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -110,7 +110,7 @@
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton2" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="botaoexcluir" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -149,8 +149,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gerenciar Ferramenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="botaoexcluir">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9e" green="d4" red="11" type="rgb"/>
@@ -160,6 +163,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Ferramenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoexcluirActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
@@ -171,6 +177,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Relat&#xf3;rio da Ferramenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
@@ -182,6 +191,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Custo Total"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -1,6 +1,16 @@
 
 package visualizacao;
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import modelo.Amigo;
+import modelo.Ferramenta;
+
 public class Ferramentavisualizacao extends javax.swing.JFrame {
+        Ferramenta ferramenta = new Ferramenta();
+    ArrayList minhaLista = new ArrayList();
     public Ferramentavisualizacao() {
         initComponents();
     }
@@ -12,7 +22,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botaoexcluir = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jVoltarferramenta = new javax.swing.JButton();
@@ -36,18 +46,38 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(17, 212, 158));
         jButton1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButton1.setText("Gerenciar Ferramenta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(17, 212, 158));
-        jButton3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jButton3.setText("Excluir Ferramenta");
+        botaoexcluir.setBackground(new java.awt.Color(17, 212, 158));
+        botaoexcluir.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        botaoexcluir.setText("Excluir Ferramenta");
+        botaoexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoexcluirActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(17, 212, 158));
         jButton4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButton4.setText("Relatório da Ferramenta");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(17, 212, 158));
         jButton5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButton5.setText("Custo Total");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -60,7 +90,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -74,7 +104,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +178,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jVoltarferramentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVoltarferramentaMouseEntered
-        jVoltarferramenta.setBackground(whiteColor);
+
     }//GEN-LAST:event_jVoltarferramentaMouseEntered
 
     private void jVoltarferramentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVoltarferramentaMouseExited
@@ -161,8 +191,121 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jVoltarferramentaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String nome = JOptionPane.showInputDialog(null,"nome");
+        String marca = JOptionPane.showInputDialog(null,"marca");
+        double custo = Double.parseDouble(JOptionPane.showInputDialog(null,"custo"));
+        ferramenta.addFerramenta(nome, marca, custo);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void botaoexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoexcluirActionPerformed
+        String Nome = JOptionPane.showInputDialog(null, "Nome:");
+        String marca = JOptionPane.showInputDialog(null, "marca:");
+        ferramenta.deleteFerramentaBD(Nome,marca); 
+    }//GEN-LAST:event_botaoexcluirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String Nome = JOptionPane.showInputDialog("Nome: ");
+        String Marca = JOptionPane.showInputDialog("Marca: ");
+        int ferramentaid = ferramenta.getId(Nome,Marca);
+    
+        if(ferramentaid == -1){
+           JOptionPane.showMessageDialog(null, "Dados não encontrados!"); 
+        }else{
+            // Definindo o look and feel do sistema operacional
+           try {
+               UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+           } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+               e.printStackTrace();
+           }
+
+           // Opções de botões
+           String[] options = {"Nome", "Marca", "Custo", "Cancelar"};
+
+           // Mensagem da caixa de diálogo
+           String message = "Qual dado você gostaria de alterar?";
+
+           // Título da caixa de diálogo
+           String title = "Editando dados de ferramenta";
+
+           // Exibindo o JOptionPane com botões personalizados
+           int option = JOptionPane.showOptionDialog(
+                   null,                                 // Componente pai
+                   message,                              // Mensagem
+                   title,                                // Título
+                   JOptionPane.YES_NO_CANCEL_OPTION,     // Tipo de opção
+                   JOptionPane.QUESTION_MESSAGE,         // Tipo de mensagem
+                   null,                                 // Ícone
+                   options,                              // Botões personalizados
+                   options[0]                            // Botão padrão
+           );
+
+           // Tratamento da opção selecionada
+           switch (option) {
+               case 0: // Salvar
+                   String novoNome = JOptionPane.showInputDialog("Novo nome: ");
+                   ferramenta.setNome(ferramentaid, novoNome);
+                   break;
+               case 1: // Não Salvar
+                   String novaMarca = JOptionPane.showInputDialog("Nova marca: ");
+                   ferramenta.setMarca(ferramentaid, novaMarca);
+                   break;
+                case 2: // Não Salvar
+                   double novoCusto  = Double.parseDouble(JOptionPane.showInputDialog("Novo custo: "));
+                   ferramenta.setCusto(ferramentaid, novoCusto);
+                   break;
+               case 3: // Cancelar
+                   JOptionPane.showMessageDialog(null, "Operação cancelada!");
+                   break;
+               default:
+                   System.out.println("Nenhuma opção selecionada");
+                   break;
+           }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        minhaLista.clear();
+        minhaLista = ferramenta.getFerramenta();
+         // Verificar se a lista não está vazia
+        String tupla = "Nome | Marca|Custo\n";
+        int cont = 0;
+        while(cont < minhaLista.size()){
+            // Verificar o tipo do primeiro objeto na lista
+            Object FerramentaAtual = minhaLista.get(cont);
+            if (FerramentaAtual instanceof Ferramenta) {
+                // Exibir os dados do amigo atual na lista
+                String nome = ((Ferramenta) FerramentaAtual).getNome();
+                String marca = ((Ferramenta) FerramentaAtual).getMarca();
+                double custo = ((Ferramenta) FerramentaAtual).getCusto();
+                tupla += nome+"    ->     "+marca+"    ->     "+custo+"\n";
+                cont++;
+            } else {
+                // Tipo de objeto inesperado
+                System.out.println("O objeto na lista não é do tipo Ferramenta.");
+            }
+        } 
+        JOptionPane.showMessageDialog(null, tupla);
+        if (minhaLista.isEmpty()){
+            // Exibir mensagem informando que a lista está vazia
+            JOptionPane.showMessageDialog(null, "A lista de Ferramentas está vazia.");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        minhaLista.clear();
+        minhaLista = ferramenta.getListaFerramenta();
+        double somaCusto = 0; 
+        int cont = 0;
+        while(cont < minhaLista.size()){
+            // Verificar o tipo do primeiro objeto na lista
+            Object FerramentaAtual = minhaLista.get(cont);
+            if (FerramentaAtual instanceof Ferramenta) {
+                somaCusto += ((Ferramenta) FerramentaAtual).getCusto();
+            }
+            cont++; 
+        }
+        JOptionPane.showMassageDialog(null,"A soma total do custo das ferramentas equivale à R$ "+somaCusto);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     public static void main(String args[]) {
    
@@ -174,9 +317,9 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoexcluir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabelferramenta;
