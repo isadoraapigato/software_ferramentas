@@ -1,7 +1,7 @@
 
 package visualizacao;
-public class Ferramenta extends javax.swing.JFrame {
-    public Ferramenta() {
+public class Ferramentavisualizacao extends javax.swing.JFrame {
+    public Ferramentavisualizacao() {
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -168,7 +168,7 @@ public class Ferramenta extends javax.swing.JFrame {
    
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ferramenta().setVisible(true);
+                new Ferramentavisualizacao().setVisible(true);
             }
         });
     }

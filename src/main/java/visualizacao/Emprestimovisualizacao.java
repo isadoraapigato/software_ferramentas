@@ -6,11 +6,11 @@ package visualizacao;
 
 import java.awt.Color;
 
-public class Emprestimo extends javax.swing.JFrame {
+public class Emprestimovisualizacao extends javax.swing.JFrame {
     Color greenColor = Color.decode("#11D49E");
     Color redColor = Color.decode("#FF2424");
     Color whiteColor = Color.decode("#6E6E6E");
-    public Emprestimo() {
+    public Emprestimovisualizacao() {
         initComponents();
     }
 
@@ -139,20 +139,21 @@ public class Emprestimo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Emprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Emprestimovisualizacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Emprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Emprestimovisualizacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Emprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Emprestimovisualizacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Emprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Emprestimovisualizacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Emprestimo().setVisible(true);
+                new Emprestimovisualizacao().setVisible(true);
             }
         });
     }
