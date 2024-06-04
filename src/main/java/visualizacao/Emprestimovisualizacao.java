@@ -25,6 +25,8 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        Empréstimos_Realizados = new javax.swing.JButton();
+        Empréstimos_ativos = new javax.swing.JButton();
         Voltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -34,15 +36,43 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        Empréstimos_Realizados.setBackground(new java.awt.Color(17, 212, 158));
+        Empréstimos_Realizados.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        Empréstimos_Realizados.setText("Empréstimos Realizados");
+        Empréstimos_Realizados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Empréstimos_RealizadosActionPerformed(evt);
+            }
+        });
+
+        Empréstimos_ativos.setBackground(new java.awt.Color(17, 212, 158));
+        Empréstimos_ativos.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        Empréstimos_ativos.setText("Empréstimos Ativos");
+        Empréstimos_ativos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Empréstimos_ativosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Empréstimos_ativos, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Empréstimos_Realizados))
+                .addGap(217, 217, 217))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(Empréstimos_Realizados, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(Empréstimos_ativos, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         Voltar.setBackground(new java.awt.Color(222, 222, 222));
@@ -73,7 +103,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(270, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(211, 211, 211)
                 .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,6 +152,16 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
 
     }//GEN-LAST:event_VoltarActionPerformed
 
+    private void Empréstimos_RealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empréstimos_RealizadosActionPerformed
+        String nome = JOptionPane.showInputDialog(null,"nome");
+        String telefone = JOptionPane.showInputDialog(null,"telefone");
+        amigo.addAmigo(nome, telefone);
+    }//GEN-LAST:event_Empréstimos_RealizadosActionPerformed
+
+    private void Empréstimos_ativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empréstimos_ativosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empréstimos_ativosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -159,6 +199,8 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Empréstimos_Realizados;
+    private javax.swing.JButton Empréstimos_ativos;
     private javax.swing.JButton Voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
