@@ -162,7 +162,7 @@ public class AmigoDAO {
         minhaLista.clear(); // Limpa nosso ArrayList
         try {
             Statement stmt = conexao.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM db_amigos");
+            ResultSet res = stmt.executeQuery("SELECT * FROM amigos");
             while (res.next()) {
                 String nome = res.getString("nome");
                 String telefone = res.getString("telefone");
@@ -171,7 +171,7 @@ public class AmigoDAO {
             }
             stmt.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Deu ruim paizao!");
+            JOptionPane.showMessageDialog(null, "Deu ruim tiozão!");
         }
         return minhaLista;
     }
