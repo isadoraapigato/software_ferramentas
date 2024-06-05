@@ -1,11 +1,9 @@
-
 package visualizacao;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import modelo.Amigo;
 import modelo.Ferramenta;
 
 public class Ferramentavisualizacao extends javax.swing.JFrame {
@@ -243,15 +241,15 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
            switch (option) {
                case 0: // Salvar
                    String novoNome = JOptionPane.showInputDialog("Novo nome: ");
-                   ferramenta.setNome(ferramentaid, novoNome);
+                   ferramenta.setNome(novoNome);
                    break;
                case 1: // Não Salvar
                    String novaMarca = JOptionPane.showInputDialog("Nova marca: ");
-                   ferramenta.setMarca(ferramentaid, novaMarca);
+                   ferramenta.setMarca(novaMarca);
                    break;
                 case 2: // Não Salvar
                    double novoCusto  = Double.parseDouble(JOptionPane.showInputDialog("Novo custo: "));
-                   ferramenta.setCusto(ferramentaid, novoCusto);
+                   ferramenta.setPreco(novoCusto);
                    break;
                case 3: // Cancelar
                    JOptionPane.showMessageDialog(null, "Operação cancelada!");
@@ -265,7 +263,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         minhaLista.clear();
-        minhaLista = ferramenta.getFerramenta();
+        minhaLista = ferramenta.getListaFerramenta();
          // Verificar se a lista não está vazia
         String tupla = "Nome | Marca|Custo\n";
         int cont = 0;
@@ -276,7 +274,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
                 // Exibir os dados do amigo atual na lista
                 String nome = ((Ferramenta) FerramentaAtual).getNome();
                 String marca = ((Ferramenta) FerramentaAtual).getMarca();
-                double custo = ((Ferramenta) FerramentaAtual).getCusto();
+                double custo = ((Ferramenta) FerramentaAtual).getPreco();
                 tupla += nome+"    ->     "+marca+"    ->     "+custo+"\n";
                 cont++;
             } else {
@@ -300,11 +298,11 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
             // Verificar o tipo do primeiro objeto na lista
             Object FerramentaAtual = minhaLista.get(cont);
             if (FerramentaAtual instanceof Ferramenta) {
-                somaCusto += ((Ferramenta) FerramentaAtual).getCusto();
+                somaCusto += ((Ferramenta) FerramentaAtual).getPreco();
             }
             cont++; 
         }
-        JOptionPane.showMassageDialog(null,"A soma total do custo das ferramentas equivale à R$ "+somaCusto);
+        JOptionPane.showMessageDialog(null,"A soma total do custo das ferramentas equivale à R$ "+somaCusto);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     public static void main(String args[]) {

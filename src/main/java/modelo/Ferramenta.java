@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Ferramenta {
         private int id;
-        private String ferramenta;
+        private String nome;
         private String marca;
         private double preco;
         FerramentaDAO objeto = new FerramentaDAO();
@@ -16,46 +16,40 @@ public class Ferramenta {
         
         public Ferramenta(int id, String ferramenta, String marca, double preco){
             this.id = id;
-            this.ferramenta = ferramenta;
+            this.nome = ferramenta;
             this.marca = marca;
             this.preco = preco;
             
         }
-        
-        public int getId(String nome, String marca){
-            return id;
-        }
 
-        public void setId(int id) {
-            this.id = id;
+        public String getNome() {
+            return objeto.getNomeDAO(this.getId(this.nome,this.marca));
         }
-
-        public void setFerramenta(String Ferramenta) {
-            this.ferramenta = ferramenta;
-        }
-        
         public String getMarca(){
-            return marca;
+            return objeto.getMarcaDAO(this.getId(this.nome,this.marca));
         }
-        
-        public void setMarca(String Marca){
-            this.marca = marca;
-        }
-        
         public double getPreco(){
-            return preco;
+            return objeto.getPrecoDAO(this.getId(this.nome,this.marca));
+        }
+        public int getId(String nome, String marca){
+            return objeto.getIdDAO(nome, marca);
+        }
+
+       
+        public void setNome(String novoNome) {
+            objeto.setNomeDAO(this.getId(),novoNome);
+            this.nome=novoNome;
+        }
+        public void setMarca(String novaMarca){
+            objeto.setMarcaDAO(this.getId(),novaMarca);
+            this.marca = novaMarca;
+        }
+        public void setPreco(double novoPreco){
+            objeto.setPrecoDAO(this.getId(), novoPreco);
+            this.preco = novoPreco;
         }
         
-        public void setPreco(double preco){
-            this.preco = preco;
-        }
-        
-        @Override
-        public String toString(){
-             return super.toString() + "ferramenta+" + ferramenta + ", marca=" + marca + "preco=" + preco;
-        }
-        
-        public ArrayList getFerramenta(){
+        public ArrayList getListaFerramenta(){
             return objeto.getMinhaLista();
         }
         
@@ -69,17 +63,4 @@ public class Ferramenta {
             return true;
         }
         
-        public boolean updateFerramentaBD(int id, String ferramenta, String marca, double preco){
-            Ferramenta objeto = new Ferramenta(id, ferramenta, marca, preco);
-            dao.updateFerramenta(objeto);
-            return true;
-        }
-        
-        public Ferramenta carregaFerramenta(int id){
-            return dao.carregaFerramenta(id);
-        }
-        
-        public int maiorID() {
-            return dao.maiorID();
-        }
     }
