@@ -63,7 +63,7 @@
                           <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                          <EmptySpace pref="38" max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       </Group>
@@ -84,30 +84,44 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="Empréstimos_ativos" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="Empréstimos_Realizados" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Escolher_Ferramentas2" max="32767" attributes="0"/>
+                          <Component id="Emprestar_Ferramentas" max="32767" attributes="0"/>
+                          <Component id="Escolher_Amigos" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Relatório_de_Empréstimos_ativos" alignment="1" min="-2" pref="298" max="-2" attributes="0"/>
+                          <Component id="Relatório_de_Empréstimos_Realizados" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="Empréstimos_Realizados" min="-2" pref="81" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="Empréstimos_ativos" min="-2" pref="81" max="-2" attributes="0"/>
-                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Escolher_Ferramentas2" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="Relatório_de_Empréstimos_ativos" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="Emprestar_Ferramentas" min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Escolher_Amigos" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="Relatório_de_Empréstimos_Realizados" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="Empr&#xe9;stimos_Realizados">
+            <Component class="javax.swing.JButton" name="Relat&#xf3;rio_de_Empr&#xe9;stimos_Realizados">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9e" green="d4" red="11" type="rgb"/>
@@ -115,13 +129,13 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos Realizados"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Empr&#xe9;stimos Realizados"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Empr&#xe9;stimos_RealizadosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Relat&#xf3;rio_de_Empr&#xe9;stimos_RealizadosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="Empr&#xe9;stimos_ativos">
+            <Component class="javax.swing.JButton" name="Relat&#xf3;rio_de_Empr&#xe9;stimos_ativos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9e" green="d4" red="11" type="rgb"/>
@@ -129,10 +143,52 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos Ativos"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Empr&#xe9;stimos Ativos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Empr&#xe9;stimos_ativosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Relat&#xf3;rio_de_Empr&#xe9;stimos_ativosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Escolher_Amigos">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9e" green="d4" red="11" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Serif" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Escolher Amigos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Escolher_AmigosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Emprestar_Ferramentas">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9e" green="d4" red="11" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Serif" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Emprestar Ferramentas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Emprestar_FerramentasActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Escolher_Ferramentas2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9e" green="d4" red="11" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Serif" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Escolher Ferramentas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Escolher_Ferramentas2ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
