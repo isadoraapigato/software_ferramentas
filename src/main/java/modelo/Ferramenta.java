@@ -37,20 +37,20 @@ public class Ferramenta {
 
        
         public void setNome(String novoNome) {
-            objeto.setNomeDAO(this.getId(),novoNome);
+            objeto.setNomeDAO(this.getId(this.nome,this.marca),novoNome);
             this.nome=novoNome;
         }
         public void setMarca(String novaMarca){
-            objeto.setMarcaDAO(this.getId(),novaMarca);
+            objeto.setMarcaDAO(this.getId(this.nome,this.marca),novaMarca);
             this.marca = novaMarca;
         }
         public void setPreco(double novoPreco){
-            objeto.setPrecoDAO(this.getId(), novoPreco);
+            objeto.setPrecoDAO(this.getId(this.nome,this.marca), novoPreco);
             this.preco = novoPreco;
         }
         
         public ArrayList getListaFerramenta(){
-            return objeto.getMinhaLista();
+            return objeto.getMinhaListaDAO();
         }
         
         public boolean addFerramenta(String ferramenta, String marca, double preco) {
