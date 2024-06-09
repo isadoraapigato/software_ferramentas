@@ -81,7 +81,7 @@ public class Menuvisualizacao extends javax.swing.JFrame {
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
-        Voltar.setBackground(new java.awt.Color(200, 200, 200));
+        Voltar.setBackground(new java.awt.Color(204, 204, 204));
         Voltar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         Voltar.setText(" < ");
         Voltar.setBorder(null);
@@ -143,15 +143,21 @@ public class Menuvisualizacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmigosActionPerformed
-
+        this.setVisible(false);
+        Amigovisualizacao amigo  = new Amigovisualizacao();
+        amigo.setVisible(true);
     }//GEN-LAST:event_AmigosActionPerformed
 
     private void EmpréstimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpréstimosActionPerformed
-
+        this.setVisible(false);
+        Emprestimovisualizacao emprestimo  = new Emprestimovisualizacao();
+        emprestimo.setVisible(true);
     }//GEN-LAST:event_EmpréstimosActionPerformed
 
     private void FerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerramentasActionPerformed
-       
+        this.setVisible(false);
+        Ferramentavisualizacao ferramenta  = new Ferramentavisualizacao();
+        ferramenta.setVisible(true);
     }//GEN-LAST:event_FerramentasActionPerformed
 
     private void VoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarMouseEntered

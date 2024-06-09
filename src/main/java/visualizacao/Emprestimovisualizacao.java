@@ -113,9 +113,8 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        Voltar.setBackground(new java.awt.Color(222, 222, 222));
+        Voltar.setBackground(new java.awt.Color(204, 204, 204));
         Voltar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
-        Voltar.setForeground(new java.awt.Color(255, 255, 255));
         Voltar.setText(" < ");
         Voltar.setBorder(null);
         Voltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,7 +176,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarMouseEntered
-        Voltar.setBackground(whiteColor);
+
     }//GEN-LAST:event_VoltarMouseEntered
 
     private void VoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarMouseExited
@@ -185,9 +184,9 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
     }//GEN-LAST:event_VoltarMouseExited
 
     private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
-        this.setEnabled(false);
- 
-
+        this.setVisible(false);
+        Menuvisualizacao menu  = new Menuvisualizacao();
+        menu.setVisible(true);
     }//GEN-LAST:event_VoltarActionPerformed
 
     private void Relatório_de_Empréstimos_RealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Relatório_de_Empréstimos_RealizadosActionPerformed

@@ -100,7 +100,7 @@ public class Amigovisualizacao extends javax.swing.JFrame {
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        Voltar.setBackground(new java.awt.Color(200, 200, 200));
+        Voltar.setBackground(new java.awt.Color(204, 204, 204));
         Voltar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         Voltar.setText(" < ");
         Voltar.setBorder(null);
@@ -162,6 +162,7 @@ public class Amigovisualizacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarMouseEntered
+ 
     }//GEN-LAST:event_VoltarMouseEntered
 
     private void VoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarMouseExited
@@ -170,9 +171,8 @@ public class Amigovisualizacao extends javax.swing.JFrame {
 
     private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
         this.setVisible(false);
-        //Menu menu  = new Menu();
-        //menu.setVisible(true);
-
+        Menuvisualizacao menu  = new Menuvisualizacao();
+        menu.setVisible(true);
     }//GEN-LAST:event_VoltarActionPerformed
 
     private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed

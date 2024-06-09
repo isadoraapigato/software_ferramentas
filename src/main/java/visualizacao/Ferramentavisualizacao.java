@@ -112,9 +112,8 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        jVoltarferramenta.setBackground(new java.awt.Color(222, 222, 222));
+        jVoltarferramenta.setBackground(new java.awt.Color(204, 204, 204));
         jVoltarferramenta.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
-        jVoltarferramenta.setForeground(new java.awt.Color(255, 255, 255));
         jVoltarferramenta.setText(" < ");
         jVoltarferramenta.setBorder(null);
         jVoltarferramenta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,19 +173,6 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jVoltarferramentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVoltarferramentaMouseEntered
-
-    }//GEN-LAST:event_jVoltarferramentaMouseEntered
-
-    private void jVoltarferramentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVoltarferramentaMouseExited
-
-    }//GEN-LAST:event_jVoltarferramentaMouseExited
-
-    private void jVoltarferramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVoltarferramentaActionPerformed
-        this.setEnabled(false);
-
-    }//GEN-LAST:event_jVoltarferramentaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nome = JOptionPane.showInputDialog(null,"nome");
@@ -304,6 +290,20 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null,"A soma total do custo das ferramentas equivale à R$ "+somaCusto);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jVoltarferramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVoltarferramentaActionPerformed
+        this.setVisible(false);
+        Menuvisualizacao menu  = new Menuvisualizacao();
+        menu.setVisible(true);
+    }//GEN-LAST:event_jVoltarferramentaActionPerformed
+
+    private void jVoltarferramentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVoltarferramentaMouseExited
+
+    }//GEN-LAST:event_jVoltarferramentaMouseExited
+
+    private void jVoltarferramentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVoltarferramentaMouseEntered
+
+    }//GEN-LAST:event_jVoltarferramentaMouseEntered
 
     public static void main(String args[]) {
    
