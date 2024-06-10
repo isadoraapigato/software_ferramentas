@@ -1,16 +1,18 @@
-
 package visualizacao;
 
-import java.awt.Color;
+
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Ferramenta;
+import modelo.Emprestimo;
 
 public class Emprestimovisualizacao extends javax.swing.JFrame {
     Amigo amigo = new Amigo();
     Ferramenta ferramenta = new Ferramenta();
-    
-    Color whiteColor = Color.decode("#6E6E6E");
+    Emprestimo emprestimo = new Emprestimo();
+    ArrayList<Object> minhaLista = new ArrayList<>();
+
     public Emprestimovisualizacao() {
         initComponents();
     }
@@ -22,11 +24,13 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Relatório_de_Empréstimos_Realizados = new javax.swing.JButton();
+        Amigos_com_mais_Empréstimos = new javax.swing.JButton();
         Relatório_de_Empréstimos_ativos = new javax.swing.JButton();
         Escolher_Amigos = new javax.swing.JButton();
         Emprestar_Ferramentas = new javax.swing.JButton();
         Escolher_Ferramentas2 = new javax.swing.JButton();
+        Relatório_de_Empréstimos_Realizados1 = new javax.swing.JButton();
+        Devolver_Ferramentas1 = new javax.swing.JButton();
         Voltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -36,12 +40,12 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        Relatório_de_Empréstimos_Realizados.setBackground(new java.awt.Color(17, 212, 158));
-        Relatório_de_Empréstimos_Realizados.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        Relatório_de_Empréstimos_Realizados.setText("Relatório de Empréstimos Realizados");
-        Relatório_de_Empréstimos_Realizados.addActionListener(new java.awt.event.ActionListener() {
+        Amigos_com_mais_Empréstimos.setBackground(new java.awt.Color(17, 212, 158));
+        Amigos_com_mais_Empréstimos.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        Amigos_com_mais_Empréstimos.setText("Amigos com mais Empréstimos");
+        Amigos_com_mais_Empréstimos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Relatório_de_Empréstimos_RealizadosActionPerformed(evt);
+                Amigos_com_mais_EmpréstimosActionPerformed(evt);
             }
         });
 
@@ -81,6 +85,24 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
             }
         });
 
+        Relatório_de_Empréstimos_Realizados1.setBackground(new java.awt.Color(17, 212, 158));
+        Relatório_de_Empréstimos_Realizados1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        Relatório_de_Empréstimos_Realizados1.setText("Relatório de Empréstimos Realizados");
+        Relatório_de_Empréstimos_Realizados1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Relatório_de_Empréstimos_Realizados1ActionPerformed(evt);
+            }
+        });
+
+        Devolver_Ferramentas1.setBackground(new java.awt.Color(17, 212, 158));
+        Devolver_Ferramentas1.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        Devolver_Ferramentas1.setText("Devolver Ferramentas");
+        Devolver_Ferramentas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Devolver_Ferramentas1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -90,12 +112,18 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Escolher_Ferramentas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Emprestar_Ferramentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Escolher_Amigos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Escolher_Amigos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Devolver_Ferramentas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Relatório_de_Empréstimos_ativos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Relatório_de_Empréstimos_Realizados, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(30, 30, 30))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(Amigos_com_mais_Empréstimos, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Relatório_de_Empréstimos_ativos, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Relatório_de_Empréstimos_Realizados1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,14 +131,21 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Escolher_Ferramentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Relatório_de_Empréstimos_ativos, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(Emprestar_Ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                    .addComponent(Relatório_de_Empréstimos_Realizados1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Emprestar_Ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Devolver_Ferramentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(Relatório_de_Empréstimos_ativos, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Escolher_Amigos, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Relatório_de_Empréstimos_Realizados, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(Amigos_com_mais_Empréstimos, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         Voltar.setBackground(new java.awt.Color(204, 204, 204));
@@ -155,7 +190,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
                         .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(38, Short.MAX_VALUE)
+                        .addContainerGap(24, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,22 +224,61 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_VoltarActionPerformed
 
-    private void Relatório_de_Empréstimos_RealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Relatório_de_Empréstimos_RealizadosActionPerformed
+    private void Amigos_com_mais_EmpréstimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Amigos_com_mais_EmpréstimosActionPerformed
         String nome = JOptionPane.showInputDialog(null,"nome");
         String telefone = JOptionPane.showInputDialog(null,"telefone");
         amigo.addAmigo(nome, telefone);
-    }//GEN-LAST:event_Relatório_de_Empréstimos_RealizadosActionPerformed
+    }//GEN-LAST:event_Amigos_com_mais_EmpréstimosActionPerformed
 
     private void Relatório_de_Empréstimos_ativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Relatório_de_Empréstimos_ativosActionPerformed
-        // TODO add your handling code here:
+        minhaLista.clear();
+        minhaLista = emprestimo.getrelatorioAtivos();
+         // Verificar se a lista não está vazia
+        String tupla = "AMIGO | FERRAMENTA | DATA DO EMPRESTIMO\n";
+        int cont = 0;
+        while(cont < minhaLista.size()){
+            // Verificar o tipo do primeiro objeto na lista
+            Object primeiroEmprestimo = minhaLista.get(cont);
+            if (primeiroEmprestimo instanceof Emprestimo) {
+                // Exibir os dados do amigo atual na lista
+                String amigo_emprestimo = ((Emprestimo) primeiroEmprestimo).getAmigo();
+                String ferramenta_emprestimo = ((Emprestimo) primeiroEmprestimo).getFerramenta();
+                String dataEmprestimo = ((Emprestimo) primeiroEmprestimo).getDataEmprestimo();
+                tupla += amigo_emprestimo+"           "+ferramenta_emprestimo+"                 "+dataEmprestimo+"\n";
+                cont++;
+            } else {
+                // Tipo de objeto inesperado
+                System.out.println("O objeto na lista não é do tipo Emprestimo.");
+            }
+        } 
+        
+        if (minhaLista.isEmpty()){
+            // Exibir mensagem informando que a lista está vazia
+            JOptionPane.showMessageDialog(null, "A lista de empréstimos está vazia.");
+        }else{JOptionPane.showMessageDialog(null, tupla);}
     }//GEN-LAST:event_Relatório_de_Empréstimos_ativosActionPerformed
 
     private void Escolher_AmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Escolher_AmigosActionPerformed
-        // TODO add your handling code here:
+        String nome = JOptionPane.showInputDialog(null,"nome do amigo: ");
+        String telefone = JOptionPane.showInputDialog(null,"telefone do amigo: ");
+        Escolher_Amigos.setText(nome+ " "+ telefone);
     }//GEN-LAST:event_Escolher_AmigosActionPerformed
 
     private void Emprestar_FerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emprestar_FerramentasActionPerformed
-        // TODO add your handling code here:
+        String[] amigoSelecionado = Escolher_Amigos.getText().split(" ");
+        String[] ferramentaSelecionada = Escolher_Ferramentas2.getText().split(" "); 
+        int ferramentaid = ferramenta.getId(ferramentaSelecionada[0], ferramentaSelecionada[1]);
+        int amigoid = amigo.getIdAmigo(amigoSelecionado[0]);
+        if (emprestimo.verificarAmigo(amigoid) != -1){
+            emprestimo.addEmprestimo(amigoid, ferramentaid);
+        }else{
+            String resposta = JOptionPane.showInputDialog(null, "Amigo possui emprestimos ativos, deseja emprestar mesmo assim?\n S/N");
+            if ((resposta.compareTo("S") == 0) || (resposta.compareTo("s") == 0)){
+                emprestimo.addEmprestimo(amigoid, ferramentaid);
+            } else {
+                JOptionPane.showMessageDialog(null, "Empréstimo cancelado!");
+            }
+        }
     }//GEN-LAST:event_Emprestar_FerramentasActionPerformed
 
     private void Escolher_Ferramentas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Escolher_Ferramentas2ActionPerformed
@@ -212,6 +286,48 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
         String marca_ferramenta = JOptionPane.showInputDialog(null, "Marca da ferramenta: "); 
         Escolher_Ferramentas2.setText(nome_ferramenta+ " "+ marca_ferramenta);
     }//GEN-LAST:event_Escolher_Ferramentas2ActionPerformed
+
+    private void Relatório_de_Empréstimos_Realizados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Relatório_de_Empréstimos_Realizados1ActionPerformed
+        Emprestimo emprestimosHist = new Emprestimo();
+        minhaLista.clear();
+        minhaLista = emprestimosHist.getrelatorioHistorico();
+         // Verificar se a lista não está vazia
+        String tupla = "AMIGO | FERRAMENTA | DATA EMPRESTIMO | DATA DEVOLUÇÃO\n";
+        int cont = 0;
+         while(cont < minhaLista.size()){
+            // Verificar o tipo do primeiro objeto na lista
+            Object atualEmprestimo = minhaLista.get(cont);
+            if (atualEmprestimo instanceof Emprestimo) {
+                // Exibir os dados da primeira ferramenta na lista
+                String amigo = ((Emprestimo) atualEmprestimo).getAmigo();
+                String ferramenta = ((Emprestimo) atualEmprestimo).getFerramenta();
+                String dataEmprestimo = ((Emprestimo) atualEmprestimo).getDataEmprestimo();
+                String dataDevolucao = ((Emprestimo) atualEmprestimo).getDataDevolucao();
+                tupla += amigo+"           "+ferramenta+"                 "+dataEmprestimo+"                 "+dataDevolucao+"\n";
+                cont++;
+            } else {
+                // Tipo de objeto inesperado
+                System.out.println("O objeto na lista não é do tipo Ferramenta.");
+            }
+        }
+        
+        if (minhaLista.isEmpty()){
+            // Exibir mensagem informando que a lista está vazia
+            JOptionPane.showMessageDialog(null, "A lista de empréstimos está vazia.");
+        }else{JOptionPane.showMessageDialog(null, tupla);}
+    }//GEN-LAST:event_Relatório_de_Empréstimos_Realizados1ActionPerformed
+
+    private void Devolver_Ferramentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Devolver_Ferramentas1ActionPerformed
+        String Data_Devolucao = JOptionPane.showInputDialog(null, "Data de devolução");
+        String[] amigoSelecionado = Escolher_Amigos.getText().split(" ");
+        String[] ferramentaSelecionada = Escolher_Ferramentas2.getText().split(" "); 
+        
+        int amigoid = amigo.getIdAmigo(amigoSelecionado[0]);
+        int ferramentaid = ferramenta.getId(ferramentaSelecionada[0], ferramentaSelecionada[1]);
+        
+        int emprestimoid = emprestimo.getEmprestimoid(amigoid, ferramentaid);
+        emprestimo.addDevolucao(emprestimoid, Data_Devolucao);
+    }//GEN-LAST:event_Devolver_Ferramentas1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,10 +366,12 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Amigos_com_mais_Empréstimos;
+    private javax.swing.JButton Devolver_Ferramentas1;
     private javax.swing.JButton Emprestar_Ferramentas;
     private javax.swing.JButton Escolher_Amigos;
     private javax.swing.JButton Escolher_Ferramentas2;
-    private javax.swing.JButton Relatório_de_Empréstimos_Realizados;
+    private javax.swing.JButton Relatório_de_Empréstimos_Realizados1;
     private javax.swing.JButton Relatório_de_Empréstimos_ativos;
     private javax.swing.JButton Voltar;
     private javax.swing.JLabel jLabel1;

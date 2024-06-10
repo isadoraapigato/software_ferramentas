@@ -1,6 +1,5 @@
 package visualizacao;
 
-
 public class Menuvisualizacao extends javax.swing.JFrame {
 
 
