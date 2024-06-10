@@ -57,8 +57,8 @@ public class Emprestimo {
         return emprestimoDAO.verificarAmigoDAO(amigoid);
     }
 
-    public void addEmprestimo(int amigoid, int ferramentaid){
-        emprestimoDAO.addEmprestimoDAO(amigoid, ferramentaid);
+    public void addEmprestimo(int amigoid, int ferramentaid, String data_Emprestimo){
+        emprestimoDAO.addEmprestimoDAO(amigoid, ferramentaid, data_Emprestimo);
     }
     
      public void addDevolucao(int emprestimoid, String Data_Devolucao){
