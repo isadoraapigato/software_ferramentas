@@ -5,6 +5,7 @@ public class Menuvisualizacao extends javax.swing.JFrame {
 
     public Menuvisualizacao() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centraliza o JFrame na tela
     }
 
     @SuppressWarnings("unchecked")

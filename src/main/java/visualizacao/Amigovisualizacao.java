@@ -12,6 +12,7 @@ public class Amigovisualizacao extends javax.swing.JFrame {
 
     public Amigovisualizacao() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centraliza o JFrame na tela
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -211,7 +212,6 @@ public class Amigovisualizacao extends javax.swing.JFrame {
     private void gerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarActionPerformed
         String editAmigo = JOptionPane.showInputDialog("Nome ou telefone do amigo: ");
         int idamigo = amigo.getIdAmigo(editAmigo);
-        System.out.println(idamigo);
         if(idamigo == -1){
            JOptionPane.showMessageDialog(null, "Dados não encontrados!"); 
         }else{

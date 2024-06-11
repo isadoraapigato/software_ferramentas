@@ -15,6 +15,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
 
     public Emprestimovisualizacao() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centraliza o JFrame na tela
     }
 
     
@@ -225,9 +226,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
     }//GEN-LAST:event_VoltarActionPerformed
 
     private void Amigos_com_mais_EmpréstimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Amigos_com_mais_EmpréstimosActionPerformed
-        String nome = JOptionPane.showInputDialog(null,"nome");
-        String telefone = JOptionPane.showInputDialog(null,"telefone");
-        amigo.addAmigo(nome, telefone);
+         JOptionPane.showMessageDialog(null, emprestimo.AmigoMaisEmprestimos());
     }//GEN-LAST:event_Amigos_com_mais_EmpréstimosActionPerformed
 
     private void Relatório_de_Empréstimos_ativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Relatório_de_Empréstimos_ativosActionPerformed
@@ -269,12 +268,13 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
         String[] ferramentaSelecionada = Escolher_Ferramentas2.getText().split(" "); 
         int ferramentaid = ferramenta.getId(ferramentaSelecionada[0], ferramentaSelecionada[1]);
         int amigoid = amigo.getIdAmigo(amigoSelecionado[0]);
+        String data = JOptionPane.showInputDialog(null, "Data: ");
         if (emprestimo.verificarAmigo(amigoid) != -1){
-            emprestimo.addEmprestimo(amigoid, ferramentaid);
+            emprestimo.addEmprestimo(amigoid, ferramentaid, data);
         }else{
             String resposta = JOptionPane.showInputDialog(null, "Amigo possui emprestimos ativos, deseja emprestar mesmo assim?\n S/N");
             if ((resposta.compareTo("S") == 0) || (resposta.compareTo("s") == 0)){
-                emprestimo.addEmprestimo(amigoid, ferramentaid);
+                emprestimo.addEmprestimo(amigoid, ferramentaid, data);
             } else {
                 JOptionPane.showMessageDialog(null, "Empréstimo cancelado!");
             }
@@ -290,7 +290,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
     private void Relatório_de_Empréstimos_Realizados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Relatório_de_Empréstimos_Realizados1ActionPerformed
         Emprestimo emprestimosHist = new Emprestimo();
         minhaLista.clear();
-        minhaLista = emprestimosHist.getrelatorioHistorico();
+        minhaLista = emprestimosHist.getrelatorioRealizados();
          // Verificar se a lista não está vazia
         String tupla = "AMIGO | FERRAMENTA | DATA EMPRESTIMO | DATA DEVOLUÇÃO\n";
         int cont = 0;
@@ -303,7 +303,7 @@ public class Emprestimovisualizacao extends javax.swing.JFrame {
                 String ferramenta = ((Emprestimo) atualEmprestimo).getFerramenta();
                 String dataEmprestimo = ((Emprestimo) atualEmprestimo).getDataEmprestimo();
                 String dataDevolucao = ((Emprestimo) atualEmprestimo).getDataDevolucao();
-                tupla += amigo+"           "+ferramenta+"                 "+dataEmprestimo+"                 "+dataDevolucao+"\n";
+                tupla += amigo+"           "+ferramenta+"                 "+dataEmprestimo+"                         "+dataDevolucao+"\n";
                 cont++;
             } else {
                 // Tipo de objeto inesperado

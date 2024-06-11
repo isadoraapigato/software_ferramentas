@@ -11,6 +11,7 @@ public class Ferramentavisualizacao extends javax.swing.JFrame {
     ArrayList minhaLista = new ArrayList();
     public Ferramentavisualizacao() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centraliza o JFrame na tela
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
