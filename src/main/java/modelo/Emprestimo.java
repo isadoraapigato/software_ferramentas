@@ -29,12 +29,12 @@ public class Emprestimo {
         return emprestimoDAO.getFerramentaDAO(this.Ferramentaid);
     }
     
-    public String getDataDevolucao() {
-        return data_Devolucao;
+    public String getDataEmprestimo() {
+        return emprestimoDAO.getDataEmprestimoDAO(this.getEmprestimoid(this.Amigoid, this.Ferramentaid));
     }
     
-    public String getDataEmprestimo() {
-        return data_Emprestimo;
+    public String getDataDevolucao() {
+        return emprestimoDAO.getDataDevolucaoDAO(this.getEmprestimoid(this.Amigoid, this.Ferramentaid));
     }
     
     public int getEmprestimoid(int amigoid, int ferramentaid) {
@@ -43,6 +43,10 @@ public class Emprestimo {
     
     public ArrayList getrelatorioAtivos() {
         return emprestimoDAO.getrelatorioAtivosDAO();
+    }
+    
+    public ArrayList getrelatorioRealizados() {
+        return emprestimoDAO.getrelatorioHistoricoDAO();
     }
 
     public void setDataDevolucao(String data_Devolucao) {
@@ -61,11 +65,11 @@ public class Emprestimo {
         emprestimoDAO.addEmprestimoDAO(amigoid, ferramentaid, data_Emprestimo);
     }
     
-     public void addDevolucao(int emprestimoid, String Data_Devolucao){
+    public void addDevolucao(int emprestimoid, String Data_Devolucao){
         emprestimoDAO.addDevolucaoDAO(emprestimoid, Data_Devolucao);
     }
-
-    public ArrayList<Object> getrelatorioHistorico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public String AmigoMaisEmprestimos(){
+        return emprestimoDAO.AmigoMaisEmprestimosDAO();
     }
 }
