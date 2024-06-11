@@ -3,7 +3,6 @@ package dao;
 //imports
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,10 +32,9 @@ public class EmprestimoDAO {
     ArrayList relatorios_ativos = new ArrayList();
     
     public String getAmigoDAO(int amigoid){
-        // impolementar comando sql
         String sql = """
-                     SELECT nome FROM db_amigos
-                     WHERE amigoid = (?)""";
+                     SELECT nome FROM amigos
+                     WHERE idamigos = (?)""";
         String amigo = "";
         
         try {
@@ -59,10 +57,9 @@ public class EmprestimoDAO {
     }
     
     public String getFerramentaDAO(int ferramentaid){
-        // impolementar comando sql
         String sql = """
-                     SELECT nome FROM db_ferramentas
-                     WHERE ferramentaid = (?)""";
+                     SELECT nome FROM ferramentas
+                     WHERE idferramentas = (?)""";
         String ferramenta = "";
         try { 
             PreparedStatement stmt = conexao.getConexao().prepareStatement(sql);
@@ -84,25 +81,22 @@ public class EmprestimoDAO {
     }
     
     public int getEmprestimoidDAO(int amigoid, int ferramentaid){
-        // impolementar comando sql
-        String sql = "SELECT COUNT (*) AS total FROM db_emprestimos WHERE amigoid = ? AND ferramentaid = ?";
+        String sql = "SELECT COUNT(*) AS total FROM emprestimos WHERE amigoid = ? AND ferramentaid = ?";
         int emprestimoid = 0;
         
         try (Connection conn = conexao.getConexao();
-                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, amigoid);
             stmt.setInt(2, ferramentaid);
-            
             try (ResultSet res = stmt.executeQuery()) {
                 if (res.next()) {
-                    
                     int totalEmprestimos = res.getInt("total");
                     if (totalEmprestimos > 0) {
                         
                         sql = """
                               SELECT emprestimoid
-                              FROM db_emprestimos
+                              FROM emprestimos
                               WHERE amigoid = ? AND ferramentaid = ?
                               ORDER BY emprestimoid DESC
                               LIMIT 1""";
@@ -128,7 +122,7 @@ public class EmprestimoDAO {
     
     public String getDataEmprestimoDAO(int emprestimoid) {
         String sql = """
-                     SELECT data_emprestimo FROM db_emprestimos
+                     SELECT data_emprestimo FROM emprestimos
                      WHERE emprestimoid = (?)""";
         String dataEmprestimoReturn = "";
         
@@ -155,7 +149,7 @@ public class EmprestimoDAO {
     
     public String getDataDevolucaoDAO(int emprestimoid) {
         String sql = """
-                     SELECT data_devolucao FROM db_emprestimos
+                     SELECT data_devolucao FROM emprestimos
                      WHERE emprestimoid = (?)""";
         String dataDevolucao = null;
         
@@ -185,7 +179,7 @@ public class EmprestimoDAO {
         minhaLista.clear();
         
         try { Statement stmt = conexao.getConexao().createStatement();
-        ResultSet res = stmt.executeQuery("SELECT * FROM db_emprestimos");
+        ResultSet res = stmt.executeQuery("SELECT * FROM emprestimos");
         while (res.next()) {
             int amigoid = res.getInt("amigoid");
             int ferramentaid = res.getInt("ferramentaid");
@@ -206,9 +200,8 @@ public class EmprestimoDAO {
     // Verificar
     
     public int verificarAmigoDAO(int amigoid){
-        // implementar comando sql
         String sql = """
-                     SELECT data_Devolucao FROM db_emprestimos
+                     SELECT data_devolucao FROM emprestimos
                      WHERE amigoid = (?)
                      ORDER BY emprestimoid DESC
                      LIMIT 1
@@ -241,9 +234,8 @@ public class EmprestimoDAO {
     
     // Adicionar
     public void addEmprestimoDAO(int amigoid, int ferramentaid, String Data_Emprestimo) {
-        // implementar comando sql
             String sql = """
-                         INSERT INTO db_emprestimos
+                         INSERT INTO emprestimos
                          (amigoid, ferramentaid, data_emprestimo, data_devolucao)
                          VALUES(?, ?, ?, ?)
                          """;
@@ -263,12 +255,9 @@ public class EmprestimoDAO {
         
     }
     
-    
-    
     public void addDevolucaoDAO(int emprestimoid, String Data_Devolucao){
-        // implementar comando sql
         String sql = """
-                     UPDATE db_emprestimos
+                     UPDATE emprestimos
                      SET data_devolucao = (?)
                      WHERE emprestimoid = (?)
                      """;
@@ -288,12 +277,11 @@ public class EmprestimoDAO {
     
     
     public ArrayList getrelatorioAtivosDAO(){
-        // implementar comando sql
         minhaLista.clear();
         
         try {
             Statement stmt = conexao.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM db_emprestimos WHERE data_devolucao = ''");
+            ResultSet res = stmt.executeQuery("SELECT * FROM emprestimos WHERE data_devolucao = ''");
             while (res.next()) {
                 int amigoid = res.getInt("amigoid");
                 int ferramentaid = res.getInt("ferramentaid");
@@ -317,7 +305,7 @@ public class EmprestimoDAO {
         
         try {
             Statement stmt = conexao.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM db_emprestimos WHERE Data_Devolucao <> ''");
+            ResultSet res = stmt.executeQuery("SELECT * FROM emprestimos WHERE Data_Devolucao <> ''");
             while (res.next()) {
                 int amigoid = res.getInt("amigoid");
                 int ferramentaid = res.getInt("ferramentaid");
@@ -334,25 +322,24 @@ public class EmprestimoDAO {
     }
     
     
-    public String maisEmprestimosDAO(){
+    public String AmigoMaisEmprestimosDAO(){
         String sql = """
-                     SELECT a.nome, COUNT(e.amigoid) AS ocorrencias
-                     FROM db_amigos a
-                     JOIN db_emprestimos e ON a.amigoid = e.amigoid
-                     GROUP BY a.nome
-                     ORDER BY ocorrencias DESC
-                     LIMIT 1""";
-        String nomeMaisFrequente  = "";
+                    SELECT amig.nome, COUNT(emp.amigoid) AS ocorrencias  
+                    FROM amigos amig  
+                    JOIN emprestimos emp ON amig.idamigos = emp.amigoid  
+                    GROUP BY amig.nome  
+                    ORDER BY ocorrencias DESC  
+                    LIMIT 1""";
+        String nomeMaisFrequente = "";
         try (Connection conn = conexao.getConexao();
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ResultSet res = stmt.executeQuery()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet res = stmt.executeQuery()) {
             if (res.next()) {
                 nomeMaisFrequente = res.getString("nome");
             }
         } catch (SQLException e) {
-            System.out.println("Não foi possível buscar o nome mais frequente: " + e.getMessage());
+            System.out.println("Erro ao buscar o nome mais frequente: " + e.getMessage());
         }
-        
         return nomeMaisFrequente;
     }
 }
